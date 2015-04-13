@@ -1,0 +1,3 @@
+library(googleVis)
+demo(googleVis)
+
