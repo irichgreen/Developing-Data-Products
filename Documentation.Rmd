@@ -2,7 +2,7 @@
 title: "My Shiny App Documentation"
 author: "Jin-Hoon An"
 date: "Apr. 26, 2015"
-output: html_document
+output: pdf_document
 ---
 
 
