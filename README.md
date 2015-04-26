@@ -3,7 +3,7 @@ Developing Data Products - Peer Assesment Projects
 
 ### Shiny Application
 
-You can access my app here: https://anvaksa.shinyapps.io/MyProject/
+**You can access my app here ** https://anvaksa.shinyapps.io/MyProject/
 
 Write a shiny application with associated supporting documentation. The documentation should be thought of as whatever a user will need to get started using your application.
 Deploy the application on Rstudio's shiny server
@@ -20,7 +20,7 @@ The Shiny application in question is entirely up to you. However, if you're havi
 
 ### Reproducible Pitch Presentation
 
-**My Project  Repository** http://irichgreen.github.io/slidify/index.html
+**My Project  Repository ** http://irichgreen.github.io/slidify/index.html
 
 OK, you've made your shiny app, now it's time to make your pitch. You get 5 slides (inclusive of the title slide)  to pitch a your app. You're going to create a web page using Slidify with an html5 slide deck.
 
