@@ -1,3 +1,0 @@
-library(googleVis)
-demo(googleVis)
-
