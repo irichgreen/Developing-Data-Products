@@ -1,5 +1,5 @@
 ---
-output: html_document
+
 ---
 Developing Data Products - Peer Assesment Projects
 ======================
