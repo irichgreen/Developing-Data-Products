@@ -1,8 +1,8 @@
 ---
-title: "Documentation"
+title: "My Shiny App Documentation"
 author: "Jin-Hoon An"
 date: "Apr. 26, 2015"
-output: pdf_document
+output: html_document
 ---
 
 
