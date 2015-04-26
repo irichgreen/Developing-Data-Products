@@ -1,0 +1,88 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    
+    <script src='//ramnathv.github.io/rCharts/libraries/widgets/polycharts/js/polychart2.standalone.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 600px;
+      height: 300px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart1' class = 'rChart polycharts'></div>    
+    <script type='text/javascript'>
+    var chartParams = {
+ "dom": "chart1",
+"width":    600,
+"height":    300,
+"layers": [
+ {
+ "x": {
+ "var": "countrycode",
+"sort": "value" 
+},
+"y": "value",
+"data": {
+ "country": [ "OECD", "Austria", "Belgium", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Luxembourg", "Netherlands", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "United Kingdom" ],
+"countrycode": [ "OECD", "AUT", "BEL", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "ISL", "IRL", "ITA", "LUX", "NLD", "NOR", "POL", "PRT", "SVK", "SVN", "ESP", "SWE", "CHE", "GBR" ],
+"year": [   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011 ],
+"id": [ 1, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 34 ],
+"gender": [ "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women", "Women" ],
+"value": [    4.4,      3,    4.7,    2.8,    1.6,    6.5,    3.4,    6.2,    3.2,    2.4,      5,    7.5,    5.3,    2.4,    2.4,    4.7,    4.3,    5.2,    4.3,    3.7,    6.9,    3.3,      4,    5.7,    7.5 ] 
+},
+"facet": null,
+"color": "gender",
+"type": "bar" 
+},
+{
+ "x": "countrycode",
+"y": "value",
+"data": {
+ "country": [ "OECD", "Austria", "Belgium", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Luxembourg", "Netherlands", "Norway", "Poland", "Portugal", "Slovak Republic", "Slovenia", "Spain", "Sweden", "Switzerland", "United Kingdom" ],
+"countrycode": [ "OECD", "AUT", "BEL", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "ISL", "IRL", "ITA", "LUX", "NLD", "NOR", "POL", "PRT", "SVK", "SVN", "ESP", "SWE", "CHE", "GBR" ],
+"year": [   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011,   2011 ],
+"id": [ 1, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 34 ],
+"gender": [ "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men" ],
+"value": [    7.7,    6.8,    9.2,    6.2,    3.8,   11.6,    6.8,    8.6,    6.4,    5.4,    6.3,   10.4,    9.3,      5,    5.7,    9.6,    8.5,    6.8,    7.8,    6.5,    9.4,    6.3,    6.8,    9.6,   12.5 ] 
+},
+"facet": null,
+"color": "gender",
+"type": "point",
+"size": {
+ "const":      3 
+} 
+} 
+],
+"facet": [],
+"guides": {
+ "x": {
+ "title": "",
+"ticks": [ "OECD", "AUT", "BEL", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "ISL", "IRL", "ITA", "LUX", "NLD", "NOR", "POL", "PRT", "SVK", "SVN", "ESP", "SWE", "CHE", "GBR" ] 
+},
+"y": {
+ "title": "",
+"max":     18 
+} 
+},
+"coord": [],
+"title": "% of Employed who are Senior Managers",
+"id": "chart1" 
+}
+    _.each(chartParams.layers, function(el){
+        el.data = polyjs.data(el.data)
+    })
+    var graph_chart1 = polyjs.chart(chartParams);
+</script>
+    
+    <script></script>    
+  </body>
+</html>

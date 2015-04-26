@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slidify</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Slidify">
+  <meta name="author" content="Jin-Hoon An (Apr. 26, 2015)">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Slidify</h1>
+    <h2>Developing Data Products Project Assignments 2</h2>
+    <p>Jin-Hoon An (Apr. 26, 2015)<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <pre><code>## Loading required package: knitr
+</code></pre>
+
+<style>
+p {
+  text-align: justify;
+}
+body {
+ background-image: url(libraries/frameworks/minimal/images/light_wool.png)
+}
+</style>
+
+<h2>Data</h2>
+
+<p>The data was collected by the International Labor Organization. I used a version of the dataset put together by the excellent data visualization blog: <a href="http://thewhyaxis.info/gap-remake/">thewhyaxis</a>. </p>
+
+<pre><code>         country countrycode year id gender value
+1           OECD        OECD 1995  1    Men   9.4
+3        Austria         AUT 1995  3    Men   9.5
+4        Belgium         BEL 1995  4    Men  12.2
+5         Canada         CAN 1995  5    Men  13.2
+7 Czech Republic         CZE 1995  7    Men   8.0
+8        Denmark         DNK 1995  8    Men   9.6
+</code></pre>
+
+<ul>
+<li>Creating an interactive visualization</li>
+</ul>
+
+<pre><code class="r">require(devtools)
+install_github(&#39;ramnathv/rCharts&#39;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Bar Plot Process</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Now recreate the bar plot shown in the visualization.</p>
+
+<div id='chart1'></div>
+
+<pre><code class="r">require(rCharts)
+YEAR = 2011
+
+men   &lt;- subset(dat2m, gender == &quot;Men&quot; &amp; year == YEAR)
+women &lt;- subset(dat2m, gender == &quot;Women&quot; &amp; year == YEAR)
+p1 &lt;- rPlot(x = list(var = &quot;countrycode&quot;, sort = &quot;value&quot;), y = &quot;value&quot;, 
+  color = &#39;gender&#39;, data = women, type = &#39;bar&#39;)
+p1$layer(x = &quot;countrycode&quot;, y = &quot;value&quot;, color = &#39;gender&#39;, 
+  data = men, type = &#39;point&#39;, size = list(const = 3))
+
+p1$guides(x = list(title = &quot;&quot;, ticks = unique(men$countrycode)))
+p1$guides(y = list(title = &quot;&quot;, max = 18))
+p1$addParams(width = 900, height = 800, dom = &#39;chart1&#39;,
+  title = &quot;% of Employed who are Senior Managers&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Bar Plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">p1
+</code></pre>
+
+<p><iframe src=' assets/fig/chart1_1-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart1 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Line Chart</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We can now add a line chart for comparing the values for a specific country across years. We follow the same approach outlined above, except that we only need a single layer in this case.</p>
+
+<div id='chart2'></div>
+
+<pre><code class="r">COUNTRY = &quot;Korea&quot;
+country = subset(dat2m, country == COUNTRY)
+p2 &lt;- rPlot(value ~ year, color = &#39;gender&#39;, type = &#39;line&#39;, data = country)
+p2$addParams(width = 900, height = 800, dom = &#39;chart2&#39;)
+p2$guides(y = list(min = 0, title = &quot;&quot;))
+p2
+</code></pre>
+
+<p><iframe src=' assets/fig/chart2-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart2 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Bar Plot Process'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Bar Plot'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Line Chart'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
