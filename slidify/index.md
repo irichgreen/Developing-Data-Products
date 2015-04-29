@@ -1,5 +1,5 @@
 ---
-title       : Slidify
+title       : Employed who are Senior Managers
 subtitle    : Developing Data Products Project Assignments 2
 author      : Jin-Hoon An (Apr. 26, 2015)
 job         : 
@@ -64,19 +64,31 @@ Now recreate the bar plot shown in the visualization.
 
 ```r
 require(rCharts)
-YEAR = 2011
+# YEAR = 2011
+# 
+# men   <- subset(dat2m, gender == "Men" & year == YEAR)
+# women <- subset(dat2m, gender == "Women" & year == YEAR)
+# p1 <- rPlot(x = list(var = "countrycode", sort = "value"), y = "value", 
+#   color = 'gender', data = women, type = 'bar')
+# p1$layer(x = "countrycode", y = "value", color = 'gender', 
+#   data = men, type = 'point', size = list(const = 3))
+# 
+# p1$guides(x = list(title = "", ticks = unique(men$countrycode)))
+# p1$guides(y = list(title = "", max = 18))
+# p1$addParams(width = 900, height = 800, dom = 'chart1',
+#   title = "% of Employed who are Senior Managers")
 
-men   <- subset(dat2m, gender == "Men" & year == YEAR)
+YEAR = 2011
+men <- subset(dat2m, gender == "Men" & year == YEAR)
 women <- subset(dat2m, gender == "Women" & year == YEAR)
 p1 <- rPlot(x = list(var = "countrycode", sort = "value"), y = "value", 
   color = 'gender', data = women, type = 'bar')
 p1$layer(x = "countrycode", y = "value", color = 'gender', 
   data = men, type = 'point', size = list(const = 3))
-
+p1$addParams(height = 300, dom = 'chart1', 
+  title = "% of Employed who are Senior Managers")
 p1$guides(x = list(title = "", ticks = unique(men$countrycode)))
 p1$guides(y = list(title = "", max = 18))
-p1$addParams(width = 900, height = 800, dom = 'chart1',
-  title = "% of Employed who are Senior Managers")
 ```
 
 --- .class #id 

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Slidify</title>
+  <title>Employed who are Senior Managers</title>
   <meta charset="utf-8">
-  <meta name="description" content="Slidify">
+  <meta name="description" content="Employed who are Senior Managers">
   <meta name="author" content="Jin-Hoon An (Apr. 26, 2015)">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +32,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Slidify</h1>
+    <h1>Employed who are Senior Managers</h1>
     <h2>Developing Data Products Project Assignments 2</h2>
     <p>Jin-Hoon An (Apr. 26, 2015)<br/></p>
   </hgroup>
@@ -90,19 +90,31 @@ install_github(&#39;ramnathv/rCharts&#39;)
 <div id='chart1'></div>
 
 <pre><code class="r">require(rCharts)
-YEAR = 2011
+# YEAR = 2011
+# 
+# men   &lt;- subset(dat2m, gender == &quot;Men&quot; &amp; year == YEAR)
+# women &lt;- subset(dat2m, gender == &quot;Women&quot; &amp; year == YEAR)
+# p1 &lt;- rPlot(x = list(var = &quot;countrycode&quot;, sort = &quot;value&quot;), y = &quot;value&quot;, 
+#   color = &#39;gender&#39;, data = women, type = &#39;bar&#39;)
+# p1$layer(x = &quot;countrycode&quot;, y = &quot;value&quot;, color = &#39;gender&#39;, 
+#   data = men, type = &#39;point&#39;, size = list(const = 3))
+# 
+# p1$guides(x = list(title = &quot;&quot;, ticks = unique(men$countrycode)))
+# p1$guides(y = list(title = &quot;&quot;, max = 18))
+# p1$addParams(width = 900, height = 800, dom = &#39;chart1&#39;,
+#   title = &quot;% of Employed who are Senior Managers&quot;)
 
-men   &lt;- subset(dat2m, gender == &quot;Men&quot; &amp; year == YEAR)
+YEAR = 2011
+men &lt;- subset(dat2m, gender == &quot;Men&quot; &amp; year == YEAR)
 women &lt;- subset(dat2m, gender == &quot;Women&quot; &amp; year == YEAR)
 p1 &lt;- rPlot(x = list(var = &quot;countrycode&quot;, sort = &quot;value&quot;), y = &quot;value&quot;, 
   color = &#39;gender&#39;, data = women, type = &#39;bar&#39;)
 p1$layer(x = &quot;countrycode&quot;, y = &quot;value&quot;, color = &#39;gender&#39;, 
   data = men, type = &#39;point&#39;, size = list(const = 3))
-
+p1$addParams(height = 300, dom = &#39;chart1&#39;, 
+  title = &quot;% of Employed who are Senior Managers&quot;)
 p1$guides(x = list(title = &quot;&quot;, ticks = unique(men$countrycode)))
 p1$guides(y = list(title = &quot;&quot;, max = 18))
-p1$addParams(width = 900, height = 800, dom = &#39;chart1&#39;,
-  title = &quot;% of Employed who are Senior Managers&quot;)
 </code></pre>
 
   </article>
