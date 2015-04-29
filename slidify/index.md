@@ -15,15 +15,6 @@ knit        : slidify::knit2slides
 
 
 
-<style>
-p {
-  text-align: justify;
-}
-body {
- background-image: url(libraries/frameworks/minimal/images/light_wool.png)
-}
-</style>
-
 ## Data
 
 The data was collected by the International Labor Organization. I used a version of the dataset put together by the excellent data visualization blog: [thewhyaxis](http://thewhyaxis.info/gap-remake/). 
@@ -78,11 +69,6 @@ p1$guides(y = list(title = "", max = 18))
 
 ## Bar Plot
 
-
-```r
-p1
-```
-
 <iframe src=' assets/fig/chart1_1-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart1 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style>
 
 --- .class #id 
@@ -93,16 +79,11 @@ We can now add a line chart for comparing the values for a specific country acro
 
 <div id='chart2'></div>
 
-
-
-```r
 COUNTRY = "Korea"
 country = subset(dat2m, country == COUNTRY)
 p2 <- rPlot(value ~ year, color = 'gender', type = 'line', data = country)
 p2$guides(y = list(min = 0, title = ""))
 p2$guides(y = list(title = ""))
 p2$addParams(height = 300, dom = 'chart2')
-p2
-```
 
 <iframe src=' assets/fig/chart2-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart2 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style>

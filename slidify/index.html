@@ -42,19 +42,11 @@
 
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Data</h2>
+  </hgroup>
   <article data-timings="">
-    <style>
-p {
-  text-align: justify;
-}
-body {
- background-image: url(libraries/frameworks/minimal/images/light_wool.png)
-}
-</style>
-
-<h2>Data</h2>
-
-<p>The data was collected by the International Labor Organization. I used a version of the dataset put together by the excellent data visualization blog: <a href="http://thewhyaxis.info/gap-remake/">thewhyaxis</a>. </p>
+    <p>The data was collected by the International Labor Organization. I used a version of the dataset put together by the excellent data visualization blog: <a href="http://thewhyaxis.info/gap-remake/">thewhyaxis</a>. </p>
 
 <pre><code>         country countrycode year id gender value
 1           OECD        OECD 1995  1    Men   9.4
@@ -109,10 +101,7 @@ p1$guides(y = list(title = &quot;&quot;, max = 18))
     <h2>Bar Plot</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">p1
-</code></pre>
-
-<p><iframe src=' assets/fig/chart1_1-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart1 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
+    <p><iframe src=' assets/fig/chart1_1-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart1 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -127,14 +116,12 @@ p1$guides(y = list(title = &quot;&quot;, max = 18))
 
 <div id='chart2'></div>
 
-<pre><code class="r">COUNTRY = &quot;Korea&quot;
+<p>COUNTRY = &quot;Korea&quot;
 country = subset(dat2m, country == COUNTRY)
 p2 &lt;- rPlot(value ~ year, color = &#39;gender&#39;, type = &#39;line&#39;, data = country)
 p2$guides(y = list(min = 0, title = &quot;&quot;))
 p2$guides(y = list(title = &quot;&quot;))
-p2$addParams(height = 300, dom = &#39;chart2&#39;)
-p2
-</code></pre>
+p2$addParams(height = 300, dom = &#39;chart2&#39;)</p>
 
 <p><iframe src=' assets/fig/chart2-1.html ' scrolling='no' frameBorder='0' seamless class='rChart polycharts ' id=iframe- chart2 ></iframe> <style>iframe.rChart{ width: 100%; height: 400px;}</style></p>
 
@@ -148,7 +135,7 @@ p2
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title=''>
+        data-slide=1 title='Data'>
          1
       </a>
     </li>

@@ -19,15 +19,6 @@ require(knitr)
 ```
 
 
-<style>
-p {
-  text-align: justify;
-}
-body {
- background-image: url(libraries/frameworks/minimal/images/light_wool.png)
-}
-</style>
-
 ## Data
 
 The data was collected by the International Labor Organization. I used a version of the dataset put together by the excellent data visualization blog: [thewhyaxis](http://thewhyaxis.info/gap-remake/). 
@@ -88,7 +79,7 @@ p1$guides(y = list(title = "", max = 18))
 
 ## Bar Plot
 
-```{r chart1_1, results = 'asis', comment = NA, message = F, warning = F}
+```{r chart1_1, echo = F, results = 'asis', comment = NA, message = F, warning = F}
 p1
 ```
 
@@ -100,8 +91,14 @@ We can now add a line chart for comparing the values for a specific country acro
 
 <div id='chart2'></div>
 
+COUNTRY = "Korea"
+country = subset(dat2m, country == COUNTRY)
+p2 <- rPlot(value ~ year, color = 'gender', type = 'line', data = country)
+p2$guides(y = list(min = 0, title = ""))
+p2$guides(y = list(title = ""))
+p2$addParams(height = 300, dom = 'chart2')
 
-```{r chart2, results = 'asis', comment = NA, warning = F}
+```{r chart2, echo = F, results = 'asis', comment = NA, warning = F}
 COUNTRY = "Korea"
 country = subset(dat2m, country == COUNTRY)
 p2 <- rPlot(value ~ year, color = 'gender', type = 'line', data = country)
