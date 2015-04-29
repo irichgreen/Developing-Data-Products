@@ -43,10 +43,7 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <article data-timings="">
-    <pre><code>## Loading required package: knitr
-</code></pre>
-
-<style>
+    <style>
 p {
   text-align: justify;
 }
@@ -90,20 +87,6 @@ install_github(&#39;ramnathv/rCharts&#39;)
 <div id='chart1'></div>
 
 <pre><code class="r">require(rCharts)
-# YEAR = 2011
-# 
-# men   &lt;- subset(dat2m, gender == &quot;Men&quot; &amp; year == YEAR)
-# women &lt;- subset(dat2m, gender == &quot;Women&quot; &amp; year == YEAR)
-# p1 &lt;- rPlot(x = list(var = &quot;countrycode&quot;, sort = &quot;value&quot;), y = &quot;value&quot;, 
-#   color = &#39;gender&#39;, data = women, type = &#39;bar&#39;)
-# p1$layer(x = &quot;countrycode&quot;, y = &quot;value&quot;, color = &#39;gender&#39;, 
-#   data = men, type = &#39;point&#39;, size = list(const = 3))
-# 
-# p1$guides(x = list(title = &quot;&quot;, ticks = unique(men$countrycode)))
-# p1$guides(y = list(title = &quot;&quot;, max = 18))
-# p1$addParams(width = 900, height = 800, dom = &#39;chart1&#39;,
-#   title = &quot;% of Employed who are Senior Managers&quot;)
-
 YEAR = 2011
 men &lt;- subset(dat2m, gender == &quot;Men&quot; &amp; year == YEAR)
 women &lt;- subset(dat2m, gender == &quot;Women&quot; &amp; year == YEAR)
@@ -147,8 +130,9 @@ p1$guides(y = list(title = &quot;&quot;, max = 18))
 <pre><code class="r">COUNTRY = &quot;Korea&quot;
 country = subset(dat2m, country == COUNTRY)
 p2 &lt;- rPlot(value ~ year, color = &#39;gender&#39;, type = &#39;line&#39;, data = country)
-p2$addParams(width = 900, height = 800, dom = &#39;chart2&#39;)
 p2$guides(y = list(min = 0, title = &quot;&quot;))
+p2$guides(y = list(title = &quot;&quot;))
+p2$addParams(height = 300, dom = &#39;chart2&#39;)
 p2
 </code></pre>
 

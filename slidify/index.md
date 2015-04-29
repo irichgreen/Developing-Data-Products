@@ -13,9 +13,6 @@ knit        : slidify::knit2slides
 
 
 
-```
-## Loading required package: knitr
-```
 
 
 <style>
@@ -64,20 +61,6 @@ Now recreate the bar plot shown in the visualization.
 
 ```r
 require(rCharts)
-# YEAR = 2011
-# 
-# men   <- subset(dat2m, gender == "Men" & year == YEAR)
-# women <- subset(dat2m, gender == "Women" & year == YEAR)
-# p1 <- rPlot(x = list(var = "countrycode", sort = "value"), y = "value", 
-#   color = 'gender', data = women, type = 'bar')
-# p1$layer(x = "countrycode", y = "value", color = 'gender', 
-#   data = men, type = 'point', size = list(const = 3))
-# 
-# p1$guides(x = list(title = "", ticks = unique(men$countrycode)))
-# p1$guides(y = list(title = "", max = 18))
-# p1$addParams(width = 900, height = 800, dom = 'chart1',
-#   title = "% of Employed who are Senior Managers")
-
 YEAR = 2011
 men <- subset(dat2m, gender == "Men" & year == YEAR)
 women <- subset(dat2m, gender == "Women" & year == YEAR)
@@ -116,8 +99,9 @@ We can now add a line chart for comparing the values for a specific country acro
 COUNTRY = "Korea"
 country = subset(dat2m, country == COUNTRY)
 p2 <- rPlot(value ~ year, color = 'gender', type = 'line', data = country)
-p2$addParams(width = 900, height = 800, dom = 'chart2')
 p2$guides(y = list(min = 0, title = ""))
+p2$guides(y = list(title = ""))
+p2$addParams(height = 300, dom = 'chart2')
 p2
 ```
 
